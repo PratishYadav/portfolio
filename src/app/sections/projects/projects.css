@@ -1,0 +1,494 @@
+.projects {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+/* =========================================
+   Header
+========================================= */
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 4rem;
+}
+
+.section-label {
+  display: inline-block;
+  margin-bottom: 1rem;
+
+  color: var(--accent-primary);
+
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.section-title {
+  margin-bottom: 1.25rem;
+
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.15;
+}
+
+.section-subtitle {
+  max-width: 650px;
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* =========================================
+   Project List
+========================================= */
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* =========================================
+   Project Card
+========================================= */
+
+.project-card {
+  position: relative;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  transition:
+    transform var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.project-card:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: var(--shadow-glow);
+}
+
+/* =========================================
+   Project Number
+========================================= */
+
+.project-number {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 2;
+
+  color: var(--accent-primary);
+
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+/* =========================================
+   Content
+========================================= */
+
+.project-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+
+  min-height: 420px;
+}
+
+/* =========================================
+   Project Information
+========================================= */
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 4rem 0 4rem 4rem;
+}
+
+.project-type {
+  margin-bottom: 0.75rem;
+
+  color: var(--accent-primary);
+
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.project-title {
+  margin-bottom: 1.25rem;
+
+  color: var(--text-primary);
+
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.2;
+}
+
+.project-description {
+  max-width: 560px;
+  margin-bottom: 1.5rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* =========================================
+   Technologies
+========================================= */
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  margin-bottom: 1.75rem;
+}
+
+.project-technologies span {
+  padding: 0.4rem 0.65rem;
+
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+
+  background: rgba(255, 255, 255, 0.02);
+
+  color: var(--text-secondary);
+
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+}
+
+/* =========================================
+   Project Links
+========================================= */
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.project-link:hover {
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.project-link span {
+  transition: transform var(--transition-fast);
+}
+
+.project-link:hover span {
+  transform: translate(2px, -2px);
+}
+
+.project-link.primary-link {
+  color: var(--accent-primary);
+}
+
+/* =========================================
+   Project Visual
+========================================= */
+
+.project-visual {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 3rem;
+
+  overflow: hidden;
+
+  border-left: 1px solid var(--border-color);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(56, 189, 248, 0.04),
+      rgba(139, 92, 246, 0.04)
+    );
+}
+
+.project-visual::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(148, 163, 184, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.04) 1px,
+      transparent 1px
+    );
+
+  background-size: 32px 32px;
+}
+
+/* =========================================
+   Browser Window
+========================================= */
+
+.project-window {
+  position: relative;
+  z-index: 1;
+
+  width: min(100%, 430px);
+
+  overflow: hidden;
+
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-lg);
+
+  background: var(--bg-card);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35);
+
+  transform: perspective(1000px) rotateY(-5deg);
+
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.project-card:hover .project-window {
+  transform: perspective(1000px) rotateY(0deg) translateY(-5px);
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(56, 189, 248, 0.08);
+}
+
+.window-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  height: 34px;
+  padding: 0 0.75rem;
+
+  border-bottom: 1px solid var(--border-color);
+
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.window-header span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--border-color);
+}
+
+.window-content {
+  display: flex;
+
+  min-height: 270px;
+}
+
+.window-sidebar {
+  width: 22%;
+
+  border-right: 1px solid var(--border-color);
+
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.window-main {
+  flex: 1;
+
+  padding: 1.25rem;
+}
+
+.window-line {
+  height: 8px;
+  margin-bottom: 0.6rem;
+
+  border-radius: 4px;
+
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.window-line.large {
+  width: 75%;
+}
+
+.window-line.medium {
+  width: 55%;
+}
+
+.window-line.short {
+  width: 35%;
+}
+
+/* =========================================
+   Fake Dashboard Cards
+========================================= */
+
+.window-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+
+  margin-top: 1.5rem;
+}
+
+.window-cards div {
+  height: 65px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+
+  background: rgba(56, 189, 248, 0.04);
+}
+
+.window-cards div:first-child {
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+/* =========================================
+   Fake Table
+========================================= */
+
+.window-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+
+  margin-top: 1.25rem;
+}
+
+.window-table span {
+  display: block;
+
+  width: 100%;
+  height: 6px;
+
+  border-radius: 3px;
+
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.window-table span:nth-child(2) {
+  width: 85%;
+}
+
+.window-table span:nth-child(3) {
+  width: 70%;
+}
+
+.window-table span:nth-child(4) {
+  width: 90%;
+}
+
+/* =========================================
+   Visual Label
+========================================= */
+
+.visual-label {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.25rem;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: var(--text-secondary);
+
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+}
+
+.visual-label span {
+  color: var(--accent-primary);
+}
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media (max-width: 900px) {
+  .project-content {
+    grid-template-columns: 1fr;
+  }
+
+  .project-info {
+    padding: 4rem 3rem 2rem;
+  }
+
+  .project-visual {
+    min-height: 360px;
+
+    border-top: 1px solid var(--border-color);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .project-info {
+    padding: 3.5rem 1.5rem 2rem;
+  }
+
+  .project-visual {
+    min-height: 300px;
+    padding: 2rem 1rem;
+  }
+
+  .project-window {
+    transform: none;
+  }
+
+  .project-card:hover .project-window {
+    transform: translateY(-3px);
+  }
+
+  .window-content {
+    min-height: 210px;
+  }
+
+  .project-actions {
+    gap: 1rem;
+  }
+}

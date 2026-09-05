@@ -1,1 +1,571 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+/* ============================================
+   FUTURISTIC PORTFOLIO
+   GLOBAL DESIGN SYSTEM
+   ============================================ */
+
+
+/* ============================================
+   1. DESIGN TOKENS
+   ============================================ */
+
+:root {
+
+  /* ---------- Colors ---------- */
+
+  --bg-primary: #070b14;
+  --bg-secondary: #0d1321;
+  --bg-card: #111827;
+
+  --accent-primary: #38bdf8;
+  --accent-secondary: #8b5cf6;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  --border-color: #1e293b;
+
+
+  /* ---------- Typography ---------- */
+
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+
+  /* ---------- Spacing ---------- */
+
+  --section-padding: 100px;
+  --container-width: 1200px;
+
+
+  /* ---------- Border Radius ---------- */
+
+  --radius-small: 8px;
+  --radius-medium: 14px;
+  --radius-large: 20px;
+
+
+  /* ---------- Transitions ---------- */
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+
+  /* ---------- Shadows ---------- */
+
+  --shadow-card:
+    0 10px 40px rgba(0, 0, 0, 0.25);
+
+  --shadow-glow:
+    0 0 30px rgba(56, 189, 248, 0.12);
+}
+
+
+/* ============================================
+   2. GLOBAL RESET
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+
+  font-family: var(--font-body);
+
+  background-color: var(--bg-primary);
+
+  color: var(--text-primary);
+
+  line-height: 1.6;
+
+  overflow-x: hidden;
+}
+
+
+/* ============================================
+   3. TYPOGRAPHY
+   ============================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+
+  color: var(--text-primary);
+
+  line-height: 1.2;
+}
+
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+}
+
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+
+h3 {
+  font-size: 1.5rem;
+}
+
+
+p {
+  color: var(--text-secondary);
+}
+
+
+a {
+  color: inherit;
+
+  text-decoration: none;
+}
+
+
+/* ============================================
+   4. MAIN CONTAINER
+   ============================================ */
+
+.container {
+  width: min(
+    calc(100% - 40px),
+    var(--container-width)
+  );
+
+  margin: 0 auto;
+}
+
+
+/* ============================================
+   5. SECTION
+   ============================================ */
+
+section {
+  position: relative;
+
+  width: 100%;
+
+  padding: var(--section-padding) 0;
+}
+
+
+.section-title {
+  margin-bottom: 60px;
+
+  text-align: center;
+}
+
+
+.section-title h2 {
+  margin-bottom: 15px;
+}
+
+
+.section-title p {
+  max-width: 650px;
+
+  margin: 0 auto;
+}
+
+
+/* ============================================
+   6. BUTTON SYSTEM
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 12px 24px;
+
+  border-radius: var(--radius-small);
+
+  border: 1px solid transparent;
+
+  font-family: var(--font-body);
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+
+/* ---------- Primary Button ---------- */
+
+.btn-primary {
+  background: var(--accent-primary);
+
+  color: #020617;
+
+  box-shadow:
+    0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+
+.btn-primary:hover {
+  box-shadow:
+    0 0 30px rgba(56, 189, 248, 0.3);
+}
+
+
+/* ---------- Secondary Button ---------- */
+
+.btn-secondary {
+  background: transparent;
+
+  color: var(--text-primary);
+
+  border-color: var(--border-color);
+}
+
+
+.btn-secondary:hover {
+  border-color: var(--accent-primary);
+
+  color: var(--accent-primary);
+
+  box-shadow:
+    0 0 20px rgba(56, 189, 248, 0.08);
+}
+
+
+/* ============================================
+   7. CARD SYSTEM
+   ============================================ */
+
+.card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 24, 39, 0.9),
+      rgba(13, 19, 33, 0.9)
+    );
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-medium);
+
+  box-shadow: var(--shadow-card);
+
+  transition:
+    transform var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal),
+    background var(--transition-normal);
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(56, 189, 248, 0.28);
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.22),
+    0 0 25px rgba(56, 189, 248, 0.04);
+}
+
+
+/* ============================================
+   8. GRADIENT TEXT
+   ============================================ */
+
+.gradient-text {
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent-primary),
+      var(--accent-secondary)
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* ============================================
+   9. GLOW EFFECT
+   ============================================ */
+
+.glow {
+  box-shadow:
+    0 0 30px rgba(56, 189, 248, 0.15);
+}
+
+
+/* ============================================
+   10. DIVIDER
+   ============================================ */
+
+.divider {
+  width: 100%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--border-color),
+      transparent
+    );
+}
+
+
+/* ============================================
+   11. ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes fadeUp {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+.fade-in {
+  animation:
+    fadeIn 0.6s ease forwards;
+}
+
+
+.fade-up {
+  animation:
+    fadeUp 0.6s ease forwards;
+}
+
+
+/* ============================================
+   12. ACCESSIBILITY
+   ============================================ */
+
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+
+  outline-offset: 3px;
+}
+
+
+/* ============================================
+   13. RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+
+  :root {
+    --section-padding: 80px;
+  }
+
+
+  .container {
+    width: min(
+      calc(100% - 30px),
+      var(--container-width)
+    );
+  }
+
+
+  section {
+    padding: var(--section-padding) 0;
+  }
+
+
+  .section-title {
+    margin-bottom: 40px;
+  }
+
+
+  .btn {
+    padding: 11px 20px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  :root {
+    --section-padding: 70px;
+  }
+
+
+  .container {
+    width: min(
+      calc(100% - 24px),
+      var(--container-width)
+    );
+  }
+
+}
+
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+========================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+
+/* =========================================
+   SUBTLE HOVER LIFT
+========================================= */
+
+.hover-lift {
+  transition:
+    transform var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.reveal-visible,
+  .hover-lift {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   BUTTON MICRO-INTERACTION
+========================================= */
+
+.btn::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  left: 140%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn::after {
+    display: none;
+  }
+}

@@ -1,0 +1,249 @@
+<section class="contact section" id="contact">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label">// GET IN TOUCH</span>
+
+      <h2 class="section-title">
+        Let's build something
+        <span class="gradient-text">meaningful.</span>
+      </h2>
+
+      <p class="section-subtitle">
+        Have a project, opportunity or idea you'd like to discuss?
+        Send me a message and I'll get back to you.
+      </p>
+    </div>
+
+    <div class="contact-content">
+
+      <!-- =========================================
+           Contact Information
+      ========================================== -->
+
+      <div class="contact-info">
+
+        <div class="contact-intro">
+          <span class="contact-number">01</span>
+
+          <div>
+            <h3>Let's Connect</h3>
+
+            <p>
+              I'm always open to discussing new opportunities,
+              interesting projects and ideas worth building.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-details">
+
+          <a href="mailto:YOUR_EMAIL@example.com" class="contact-detail">
+            <span class="contact-detail-icon">@</span>
+
+            <div>
+              <span class="contact-detail-label">EMAIL</span>
+              <span class="contact-detail-value">
+                yadavpratish94@gmail.com
+              </span>
+            </div>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/pratish-yadav-47049a320"
+            class="contact-detail">
+
+            <span class="contact-detail-icon">in</span>
+
+            <div>
+              <span class="contact-detail-label">LINKEDIN</span>
+              <span class="contact-detail-value">
+                LinkedIn Profile
+              </span>
+            </div>
+
+          </a>
+
+          <a
+            href="https://github.com/PratishYadav"
+            class="contact-detail">
+
+            <span class="contact-detail-icon">GH</span>
+
+            <div>
+              <span class="contact-detail-label">GITHUB</span>
+              <span class="contact-detail-value">
+                GitHub Profile
+              </span>
+            </div>
+
+          </a>
+
+        </div>
+
+        <div class="availability-card">
+
+          <span class="availability-dot"></span>
+
+          <div>
+            <strong>Open to opportunities</strong>
+
+            <p>
+              Feel free to reach out for collaboration,
+              projects or professional opportunities.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================================
+           Contact Form
+      ========================================== -->
+
+      <div class="contact-form-wrapper">
+
+        <form
+          class="contact-form"
+          (submit)="onSubmit($event)"
+          novalidate>
+
+          <!-- Name -->
+
+          <div class="form-group">
+
+            <label for="contact-name">
+              Your Name
+            </label>
+
+            <input
+              id="contact-name"
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              autocomplete="name"
+              minlength="2"
+              required>
+
+          </div>
+
+
+          <!-- Email -->
+
+          <div class="form-group">
+
+            <label for="contact-email">
+              Email Address
+            </label>
+
+            <input
+              id="contact-email"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required>
+
+          </div>
+
+
+          <!-- Subject -->
+
+          <div class="form-group">
+
+            <label for="contact-title">
+              Subject
+            </label>
+
+            <input
+              id="contact-title"
+              type="text"
+              name="title"
+              placeholder="What would you like to discuss?"
+              minlength="3"
+              required>
+
+          </div>
+
+
+          <!-- Message -->
+
+          <div class="form-group">
+
+            <label for="contact-message">
+              Message
+            </label>
+
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="6"
+              placeholder="Write your message here..."
+              minlength="10"
+              required>
+            </textarea>
+
+          </div>
+
+
+          <!-- Success Message -->
+
+          @if (successMessage) {
+            <div
+              class="form-message form-success"
+              role="status"
+              aria-live="polite">
+
+              <span class="message-icon">✓</span>
+
+              <span>{{ successMessage }}</span>
+
+            </div>
+          }
+
+
+          <!-- Error Message -->
+
+          @if (errorMessage) {
+            <div
+              class="form-message form-error"
+              role="alert">
+
+              <span class="message-icon">!</span>
+
+              <span>{{ errorMessage }}</span>
+
+            </div>
+          }
+
+
+          <!-- Submit -->
+
+          <button
+            type="submit"
+            class="btn btn-primary submit-button"
+            [disabled]="isSending">
+
+            @if (isSending) {
+              <span class="button-spinner"></span>
+              <span>Sending...</span>
+            } @else {
+              <span>Send Message</span>
+              <span class="button-arrow">→</span>
+            }
+
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Service Id  service_oxqyqgt -->
+<!-- Public Key   8QmkSxlnbWmhniqqu -->

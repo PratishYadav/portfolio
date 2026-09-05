@@ -1,0 +1,394 @@
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  background:
+    rgba(7, 11, 20, 0.78);
+
+  border-bottom:
+    1px solid rgba(148, 163, 184, 0.08);
+
+  backdrop-filter: blur(18px);
+
+  -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* ============================================
+   NAVBAR CONTAINER
+   ============================================ */
+
+.navbar-container {
+  width: min(
+    calc(100% - 40px),
+    var(--container-width)
+  );
+
+  min-height: 76px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+/* ============================================
+   LOGO
+   ============================================ */
+
+.navbar-logo {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 3px;
+
+  font-family: var(--font-heading);
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  white-space: nowrap;
+
+  transition:
+    color var(--transition-fast);
+}
+
+
+.navbar-logo:hover {
+  color: var(--accent-primary);
+}
+
+
+.logo-bracket {
+  color: var(--accent-primary);
+
+  font-weight: 500;
+}
+
+
+.logo-accent {
+  color: var(--accent-secondary);
+
+  margin: 0 2px;
+}
+
+
+/* ============================================
+   DESKTOP NAVIGATION
+   ============================================ */
+
+.desktop-nav {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 4px;
+
+  margin-left: auto;
+}
+
+
+.nav-link {
+  position: relative;
+
+  padding: 8px 11px;
+
+  color: var(--text-secondary);
+
+  font-size: 0.82rem;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transition:
+    color var(--transition-fast);
+}
+
+
+.nav-link::after {
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 0;
+
+  width: 0;
+
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: var(--accent-primary);
+
+  transform: translateX(-50%);
+
+  transition:
+    width var(--transition-normal);
+}
+
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 18px;
+}
+
+
+/* ============================================
+   RESUME BUTTON
+   ============================================ */
+
+.navbar-resume {
+  padding: 9px 16px;
+
+  font-size: 0.8rem;
+
+  gap: 7px;
+
+  flex-shrink: 0;
+}
+
+
+.navbar-resume span,
+.mobile-resume span {
+  font-size: 1rem;
+}
+
+
+/* ============================================
+   MOBILE MENU BUTTON
+   ============================================ */
+
+.menu-toggle {
+  display: none;
+
+  width: 42px;
+
+  height: 42px;
+
+  padding: 9px;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-small);
+
+  background: rgba(17, 24, 39, 0.7);
+
+  cursor: pointer;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+}
+
+
+.menu-toggle span {
+  display: block;
+
+  width: 20px;
+
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: var(--text-primary);
+
+  transition:
+    transform var(--transition-normal),
+    opacity var(--transition-normal);
+}
+
+
+.menu-toggle:hover {
+  border-color: var(--accent-primary);
+}
+
+
+/* ============================================
+   MOBILE NAVIGATION
+   ============================================ */
+
+.mobile-nav {
+  display: none;
+}
+
+
+/* ============================================
+   TABLET
+   ============================================ */
+
+@media (max-width: 1100px) {
+
+  .desktop-nav {
+    gap: 0;
+  }
+
+
+  .nav-link {
+    padding: 8px 7px;
+
+    font-size: 0.76rem;
+  }
+
+
+  .navbar-container {
+    gap: 15px;
+  }
+
+}
+
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 900px) {
+
+  .navbar-container {
+    min-height: 70px;
+  }
+
+
+  .desktop-nav,
+  .navbar-resume {
+    display: none;
+  }
+
+
+  .menu-toggle {
+    display: flex;
+  }
+
+
+  .mobile-nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    padding: 0 20px;
+
+    border-top:
+      1px solid transparent;
+
+    background:
+      rgba(7, 11, 20, 0.97);
+
+    transition:
+      max-height 0.35s ease,
+      padding 0.35s ease,
+      border-color 0.35s ease;
+  }
+
+
+  .mobile-nav.open {
+    max-height: 650px;
+
+    padding: 15px 20px 22px;
+
+    border-top-color:
+      rgba(148, 163, 184, 0.08);
+  }
+
+
+  .mobile-nav-link {
+    padding: 12px 10px;
+
+    border-radius: var(--radius-small);
+
+    color: var(--text-secondary);
+
+    font-size: 0.95rem;
+
+    font-weight: 500;
+
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+
+  .mobile-nav-link:hover {
+    background:
+      rgba(56, 189, 248, 0.06);
+
+    color: var(--accent-primary);
+  }
+
+
+  .mobile-resume {
+    margin-top: 10px;
+
+    width: 100%;
+  }
+
+}
+
+
+/* ============================================
+   SMALL MOBILE
+   ============================================ */
+
+@media (max-width: 480px) {
+
+  .navbar-container {
+    width: calc(100% - 24px);
+  }
+
+
+  .navbar-logo {
+    font-size: 0.9rem;
+  }
+
+
+  .mobile-nav {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  .mobile-nav.open {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+}
