@@ -323,15 +323,24 @@
     flex-direction: column;
   }
 
+  .education-main {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .education-meta {
+    width: 100%;
     min-width: 0;
+    box-sizing: border-box;
 
     border-top: 1px solid var(--border-color);
     border-left: 0;
   }
 
   .education-card-featured .education-meta {
+    width: 100%;
     min-width: 0;
+    box-sizing: border-box;
   }
 }
 
