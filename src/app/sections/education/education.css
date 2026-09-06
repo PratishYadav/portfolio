@@ -360,6 +360,7 @@
   .education-card:not(.education-card-featured) .education-icon {
     width: 52px;
     height: 52px;
+    text-align: center;
   }
 
   .education-meta,
