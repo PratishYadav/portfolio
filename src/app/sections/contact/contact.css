@@ -471,3 +471,143 @@
     animation: none;
   }
 }
+
+
+/* ================================
+   FORM VALIDATION
+================================ */
+
+.form-group {
+  position: relative;
+}
+
+.form-group input.invalid,
+.form-group textarea.invalid {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.15);
+}
+
+.field-error {
+  display: block;
+  margin-top: 7px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #f87171;
+}
+
+.character-count {
+  margin-top: 6px;
+  text-align: right;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.form-success,
+.form-error {
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.form-success {
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  background: rgba(34, 197, 94, 0.08);
+  color: #4ade80;
+}
+
+.form-error {
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.08);
+  color: #f87171;
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ================================
+   SUBMIT BUTTON — RESTORE ORIGINAL STYLE
+================================ */
+
+.submit-button {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: 1px solid var(--accent-primary);
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.16),
+    rgba(139, 92, 246, 0.16)
+  );
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.25),
+    rgba(139, 92, 246, 0.25)
+  );
+
+  border-color: var(--accent-primary);
+
+  box-shadow:
+    0 8px 25px rgba(56, 189, 248, 0.15),
+    0 0 20px rgba(56, 189, 248, 0.08);
+}
+
+.submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-button:disabled {
+  opacity: 0.75;
+  cursor: wait;
+  transform: none;
+}
+
+
+/* Loading spinner */
+
+.submit-button .spinner {
+  width: 16px;
+  height: 16px;
+
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: currentColor;
+
+  border-radius: 50%;
+
+  animation: button-spin 0.7s linear infinite;
+}
+
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

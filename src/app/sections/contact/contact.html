@@ -108,132 +108,143 @@
         <form
           class="contact-form"
           (submit)="onSubmit($event)"
-          novalidate>
+          novalidate
+        >
 
           <!-- Name -->
-
           <div class="form-group">
-
-            <label for="contact-name">
-              Your Name
-            </label>
+            <label for="name">Name</label>
 
             <input
-              id="contact-name"
-              type="text"
+              id="name"
               name="name"
-              placeholder="Enter your name"
-              autocomplete="name"
+              type="text"
+              placeholder="Your name"
               minlength="2"
-              required>
+              maxlength="50"
+              pattern="[A-Za-z][A-Za-z ]*"
+              required
+              (input)="validateField('name', $event)"
+              (blur)="validateField('name', $event)"
+              [class.invalid]="fieldErrors['name']"
+              autocomplete="name"
+            />
 
+            @if (fieldErrors['name']) {
+              <span class="field-error">
+                {{ fieldErrors['name'] }}
+              </span>
+            }
           </div>
 
 
           <!-- Email -->
-
           <div class="form-group">
-
-            <label for="contact-email">
-              Email Address
-            </label>
+            <label for="email">Email</label>
 
             <input
-              id="contact-email"
-              type="email"
+              id="email"
               name="email"
+              type="email"
               placeholder="you@example.com"
+              maxlength="100"
+              required
+              (input)="validateField('email', $event)"
+              (blur)="validateField('email', $event)"
+              [class.invalid]="fieldErrors['email']"
               autocomplete="email"
-              required>
+            />
 
+            @if (fieldErrors['email']) {
+              <span class="field-error">
+                {{ fieldErrors['email'] }}
+              </span>
+            }
           </div>
 
 
           <!-- Subject -->
-
           <div class="form-group">
-
-            <label for="contact-title">
-              Subject
-            </label>
+            <label for="title">Subject</label>
 
             <input
-              id="contact-title"
-              type="text"
+              id="title"
               name="title"
+              type="text"
               placeholder="What would you like to discuss?"
-              minlength="3"
-              required>
+              minlength="2"
+              maxlength="100"
+              required
+              (input)="validateField('title', $event)"
+              (blur)="validateField('title', $event)"
+              [class.invalid]="fieldErrors['title']"
+            />
 
+            @if (fieldErrors['title']) {
+              <span class="field-error">
+                {{ fieldErrors['title'] }}
+              </span>
+            }
           </div>
 
 
           <!-- Message -->
-
           <div class="form-group">
-
-            <label for="contact-message">
-              Message
-            </label>
+            <label for="message">Message</label>
 
             <textarea
-              id="contact-message"
+              id="message"
               name="message"
               rows="6"
               placeholder="Write your message here..."
-              minlength="10"
-              required>
-            </textarea>
+              minlength="5"
+              maxlength="1000"
+              required
+              (input)="validateField('message', $event)"
+              (blur)="validateField('message', $event)"
+              [class.invalid]="fieldErrors['message']"
+            ></textarea>
 
+            @if (fieldErrors['message']) {
+              <span class="field-error">
+                {{ fieldErrors['message'] }}
+              </span>
+            }
+
+            <div class="character-count">
+              {{ getMessageLength() }}/1000
+            </div>
           </div>
 
 
-          <!-- Success Message -->
-
+          <!-- Success -->
           @if (successMessage) {
-            <div
-              class="form-message form-success"
-              role="status"
-              aria-live="polite">
-
-              <span class="message-icon">✓</span>
-
-              <span>{{ successMessage }}</span>
-
+            <div class="form-success">
+              {{ successMessage }}
             </div>
           }
 
 
-          <!-- Error Message -->
-
+          <!-- Error -->
           @if (errorMessage) {
-            <div
-              class="form-message form-error"
-              role="alert">
-
-              <span class="message-icon">!</span>
-
-              <span>{{ errorMessage }}</span>
-
+            <div class="form-error">
+              {{ errorMessage }}
             </div>
           }
 
 
           <!-- Submit -->
-
           <button
             type="submit"
-            class="btn btn-primary submit-button"
-            [disabled]="isSending">
-
+            class="submit-button"
+            [disabled]="isSending"
+          >
             @if (isSending) {
-              <span class="button-spinner"></span>
-              <span>Sending...</span>
+              <span class="spinner"></span>
+              Sending...
             } @else {
-              <span>Send Message</span>
-              <span class="button-arrow">→</span>
+              Send Message →
             }
-
           </button>
 
         </form>

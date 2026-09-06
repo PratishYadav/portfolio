@@ -10,14 +10,20 @@ export class Email {
   private readonly templateId = 'template_jwx6dbl';
   private readonly publicKey = '8QmkSxlnbWmhniqqu';
 
-  async sendEmail(formData: {
+  constructor() {
+    emailjs.init({
+      publicKey: this.publicKey
+    });
+  }
+
+  sendEmail(formData: {
     name: string;
     email: string;
     title: string;
     message: string;
-  }): Promise<void> {
+  }): Promise<any> {
 
-    await emailjs.send(
+    return emailjs.send(
       this.serviceId,
       this.templateId,
       {
@@ -26,9 +32,6 @@ export class Email {
         title: formData.title,
         message: formData.message,
         time: new Date().toLocaleString()
-      },
-      {
-        publicKey: this.publicKey
       }
     );
   }
