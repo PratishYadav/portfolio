@@ -1,103 +1,421 @@
 <section class="about section" id="about">
+
   <div class="container">
 
-    <!-- Section Header -->
-    <div class="section-heading">
-      <span class="section-label">// ABOUT ME</span>
+<!-- SECTION INTRO -->
+<div class="section-heading">
 
-      <h2 class="section-title">
-        Building solutions with
-        <span class="gradient-text">code & curiosity.</span>
-      </h2>
+  <span class="section-label">// ABOUT ME</span>
 
-      <p class="section-subtitle">
-        A developer focused on creating clean, responsive and
-        user-friendly digital experiences.
-      </p>
+  <h2 class="section-title">
+    More than code.
+    <span class="gradient-text">A way of thinking.</span>
+  </h2>
+
+  <p class="section-subtitle">
+    A closer look at how I think, what I build, and the technologies behind it.
+  </p>
+
+</div>
+
+
+<!-- INTERACTIVE PROFILE -->
+<div class="developer-console card">
+
+  <!-- TERMINAL HEADER -->
+  <div class="console-header">
+
+    <div class="window-controls">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
-    <!-- About Content -->
-    <div class="about-content">
+    <div class="console-title">
+      <span class="terminal-icon">⌁</span>
+      pratish@developer:~
+    </div>
 
-      <!-- Left Side -->
-      <div class="about-text">
+    <div class="console-status">
+      <span class="status-dot"></span>
+      ONLINE
+    </div>
 
-        <p>
-          I'm a software developer passionate about building modern
-          Java applications and solving problems through technology.
-        </p>
+  </div>
 
-        <p>
-          I enjoy working with frontend technologies, backend services
-          and databases to understand how complete applications work
-          from end to end.
-        </p>
 
-        <p>
-          My approach is simple — write clean code, keep the user
-          experience in focus and continuously learn better ways to
-          build software.
-        </p>
+  <!-- CONSOLE BODY -->
+  <div class="console-body">
 
-        <div class="about-actions">
-          <a href="#contact" class="btn btn-primary">
-            Let's Connect
-            <span>→</span>
-          </a>
+    <!-- LEFT: TERMINAL -->
+    <div class="terminal-panel">
 
-          <a href="#projects" class="btn btn-secondary">
-            Explore Projects
-            <span>↗</span>
-          </a>
-        </div>
+      <div class="terminal-line muted">
+        <span class="prompt">~</span>
+        <span>booting developer.profile...</span>
+      </div>
+
+      <div class="terminal-line success">
+        <span>✓</span>
+        <span>profile loaded successfully</span>
+      </div>
+
+      <div class="terminal-divider"></div>
+
+
+      <div class="terminal-line command-line">
+
+        <span class="prompt">pratish@dev:~$</span>
+
+        <span class="typed-command">
+          {{ commandLabels[activeCommand] }}
+        </span>
+
+        <span class="cursor"></span>
 
       </div>
 
-      <!-- Right Side -->
-      <div class="about-highlights">
 
-        <div class="highlight-card card">
-          <div class="highlight-icon">
-            &lt;/&gt;
-          </div>
+      <!-- COMMAND MENU -->
+      <div class="command-menu">
 
-          <div>
-            <h3>Clean Code</h3>
-            <p>
-              Focus on readable, maintainable and structured code.
-            </p>
-          </div>
-        </div>
+        @for (command of commands; track command) {
 
-        <div class="highlight-card card">
-          <div class="highlight-icon">
-            ◈
-          </div>
+          <button
+            type="button"
+            class="command-button"
+            [class.active]="isActive(command)"
+            (click)="setCommand(command)"
+          >
 
-          <div>
-            <h3>Problem Solving</h3>
-            <p>
-              Breaking complex problems into practical solutions.
-            </p>
-          </div>
-        </div>
+            <span class="command-symbol">
+              {{ isActive(command) ? '▶' : '>' }}
+            </span>
 
-        <div class="highlight-card card">
-          <div class="highlight-icon">
-            ↗
-          </div>
+            <span class="command-name">
+              {{ commandLabels[command] }}
+            </span>
 
-          <div>
-            <h3>Continuous Learning</h3>
-            <p>
-              Exploring technologies and improving development skills.
-            </p>
-          </div>
-        </div>
+            <span class="command-description">
+              {{ commandDescriptions[command] }}
+            </span>
+
+          </button>
+
+        }
 
       </div>
+
+
+      <div class="terminal-footer">
+
+        <span>
+          <span class="key">ENTER</span>
+          select
+        </span>
+
+        <span>
+          <span class="key">TAB</span>
+          explore
+        </span>
+
+        <span>
+          <span class="key">ESC</span>
+          clear
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT: DYNAMIC OUTPUT -->
+    <div class="profile-output">
+
+      <!-- WHO AM I -->
+      @if (activeCommand === 'whoami') {
+
+        <div class="output-content">
+
+          <div class="output-header">
+            <span class="output-index">01</span>
+            <span class="output-label">IDENTITY</span>
+          </div>
+
+          <h3>
+            Pratish Yadav
+          </h3>
+
+          <p class="role">
+            Software Developer
+          </p>
+
+          <p class="output-description">
+            I enjoy turning ideas and problems into practical,
+            user-focused software. My interests span frontend
+            development, backend services and the systems that
+            connect them.
+          </p>
+
+          <div class="identity-grid">
+
+            <div>
+              <span class="meta-label">PRIMARY_FOCUS</span>
+              <strong>Full-Stack Development</strong>
+            </div>
+
+            <div>
+              <span class="meta-label">APPROACH</span>
+              <strong>Build · Learn · Improve</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+
+      <!-- STACK -->
+      @if (activeCommand === 'stack') {
+
+        <div class="output-content">
+
+          <div class="output-header">
+            <span class="output-index">02</span>
+            <span class="output-label">TECH STACK</span>
+          </div>
+
+          <h3>
+            Tools I build with.
+          </h3>
+
+          <p class="output-description">
+            My current development stack covers the frontend,
+            backend, data and tooling needed to build complete
+            applications.
+          </p>
+
+          <div class="stack-grid">
+
+            <div class="stack-group">
+              <span class="stack-number">01</span>
+              <div>
+                <span class="stack-category">FRONTEND</span>
+                <p>Angular · TypeScript · JavaScript · HTML · CSS</p>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <span class="stack-number">02</span>
+              <div>
+                <span class="stack-category">BACKEND</span>
+                <p>Java · Spring Boot · REST APIs</p>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <span class="stack-number">03</span>
+              <div>
+                <span class="stack-category">DATABASE</span>
+                <p>SQL · MySQL</p>
+              </div>
+            </div>
+
+            <div class="stack-group">
+              <span class="stack-number">04</span>
+              <div>
+                <span class="stack-category">TOOLS</span>
+                <p>Git · GitHub · VS Code · Eclipse · Postman</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+
+      <!-- PROJECTS -->
+      @if (activeCommand === 'projects') {
+
+        <div class="output-content">
+
+          <div class="output-header">
+            <span class="output-index">03</span>
+            <span class="output-label">PROJECTS</span>
+          </div>
+
+          <h3>
+            I learn by building.
+          </h3>
+
+          <p class="output-description">
+            Projects are where I experiment with technologies,
+            understand real problems and turn concepts into
+            working applications.
+          </p>
+
+          <div class="project-list">
+
+            <div class="project-item">
+              <span class="project-marker">01</span>
+              <div>
+                <strong>Parcel Management System</strong>
+                <p>Booking · Tracking · Payments · Invoices</p>
+              </div>
+            </div>
+
+            <div class="project-item">
+              <span class="project-marker">02</span>
+              <div>
+                <strong>Handwriting Calculator</strong>
+                <p>Python · OCR · Tkinter</p>
+              </div>
+            </div>
+
+            <div class="project-item">
+              <span class="project-marker">03</span>
+              <div>
+                <strong>Personal Voice Assistant</strong>
+                <p>Python · Automation · OCR</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+
+      <!-- MINDSET -->
+      @if (activeCommand === 'mindset') {
+
+        <div class="output-content">
+
+          <div class="output-header">
+            <span class="output-index">04</span>
+            <span class="output-label">MINDSET</span>
+          </div>
+
+          <h3>
+            Understand first.
+            <span class="gradient-text">Build better.</span>
+          </h3>
+
+          <div class="mindset-list">
+
+            <div class="mindset-item">
+              <span class="mindset-icon">01</span>
+              <div>
+                <strong>Problem before technology</strong>
+                <p>
+                  I prefer understanding the problem before
+                  deciding how to solve it.
+                </p>
+              </div>
+            </div>
+
+            <div class="mindset-item">
+              <span class="mindset-icon">02</span>
+              <div>
+                <strong>Clarity over complexity</strong>
+                <p>
+                  Clean structure and readable code matter
+                  more than unnecessary complexity.
+                </p>
+              </div>
+            </div>
+
+            <div class="mindset-item">
+              <span class="mindset-icon">03</span>
+              <div>
+                <strong>Always improving</strong>
+                <p>
+                  Every project is an opportunity to learn
+                  something and improve the next one.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+
+      <!-- STATUS -->
+      @if (activeCommand === 'status') {
+
+        <div class="output-content">
+
+          <div class="output-header">
+            <span class="output-index">05</span>
+            <span class="output-label">CURRENT STATUS</span>
+          </div>
+
+          <h3>
+            Currently building.
+          </h3>
+
+          <p class="output-description">
+            The goal isn't to simply collect technologies.
+            It's to become better at using them to solve
+            meaningful problems.
+          </p>
+
+          <div class="status-terminal">
+
+            <div>
+              <span class="status-key">ROLE</span>
+              <span>Software Developer</span>
+            </div>
+
+            <div>
+              <span class="status-key">MODE</span>
+              <span class="active-state">LEARNING + BUILDING</span>
+            </div>
+
+            <div>
+              <span class="status-key">FOCUS</span>
+              <span>Angular · Java · Spring Boot</span>
+            </div>
+
+            <div>
+              <span class="status-key">NEXT</span>
+              <span>Build something better.</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      }
 
     </div>
 
   </div>
+
+</div>
+
+
+<!-- BOTTOM STATEMENT -->
+<div class="about-signature">
+
+  <span class="signature-line"></span>
+
+  <p>
+    I don't want my portfolio to tell you everything.
+    <span>I'd rather let what I build do that.</span>
+  </p>
+
+  <span class="signature-line"></span>
+
+</div>
+
+  </div>
+
 </section>
